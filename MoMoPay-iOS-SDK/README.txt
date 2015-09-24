@@ -4,7 +4,7 @@ MoMoPay là cách nhanh nhất, an toàn nhất để trả tiền và thanh to�
 MoMoPay là một tiện ích của ứng dụng Ví MoMo, thuộc sở hữu của công ty của MService, trụ sở chính ở TP. Hồ Chí Minh, Việt Nam.
 Điều kiện sử dụng: Thành viên phải có tài khoản Ví MoMo. Tham khảo cách tạo tài khoản và sử dụng tài khoản tại website của công ty: http://momo.vn/
 Các bước tích hợp SDK:
-1. Cài đặt MoMoPay SDK
+1. Cài đặt SDK
 2. Cấu hình SDK
 3. Tích hợp mã nguồn
 ----------------------------------------------------***----------------------------------------------------
@@ -19,6 +19,7 @@ MessageUI.framework, StoreKit.framework, AudioToolbox.framework, MobileCoreServi
 Import headers vào trong source files cần hiển thị Link Thanh toán Bằng Ví MoMo:
 Trong source file mà bạn cần sử dụng thư viện MoMoPay SDK:
 #import <MoMoPaySDK/MoMoPaySDK.h>
+
 2. Cấu hình SDK
 2.1 Cấu hình MoMoPay Configuration
 
@@ -41,7 +42,8 @@ Trong AppDelegate của ứng dụng gọi hàm [[MoMoPayment shareInstance] han
     [[MoMoPayment shareInstance] handleOpenURL:url];
     return YES;
 }
-3. Tích hợp thanh toán
+
+3. Tích hợp mã nguồn
 Trong MoMoPay SDK, Lớp MoMoPayment chứa tất cả giao diện cần thiết để thực hiện thanh toán. 
  
 3.1 Request token: Mở app MoMo để lấy token thanh toán
