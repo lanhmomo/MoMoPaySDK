@@ -10,13 +10,22 @@ Download MoMoPaySDK cho Android và import thư viện vào IDE.
 Cấu hình <AndroidMainfest.xml>
 Mở file <AndroidMainfest.xml> trong project Android của bạn.
 Thêm các dòng sau để cấu hình phân quyền:
-<uses-permission android:name="android.permission.VIBRATE" />
 <uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="com.android.vending.BILLING" />
-Cài đặt giao diện thanh toán, cấu hình activity như bên dưới:
-<activity android:name="com.mservice.momopaysdk.MoMoPaymentActivity" android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+3. Tích hợp thanh toán
+MoMoPay SDK cung cấp lớp MoMoPayment đóng gói tất các hàm dùng để tương tác với hệ thống MoMo để lấy token và gửi lệnh thanh toán.
+3.1. Tạo nút thanh toán bằng ví MoMo bằng cách gọi hàm: MoMoPayment.createMoMoPaymentButton(...) và truyền vào các tham số:
+  1. Activity đang làm việc.
+  2. Đối tượng view cha chứa nút cần thêm vào.
+  3. Nội dung (chữ) hiện trên nút.
+  4. Màu của chữ hiện trên nút (ví dụ: "#FFFFFF" màu trắng), hoặc "" để sử dụng thiết lập mặc định.
+  5. Màu nền của nút (ví dụ: "#000000" màu đen), hoặc "" để sử dụng thiết lập mặc định.
+  6. Kích thước chữ, 0: sẽ thiết lập mặc định.
+  
+3.2 Thiết lập sự kiện setOnClickListener cho nút vừa mới tạo, trong hàm onClick(View v) gọi hàm MoMoPayment.getTokenByTID(...) và truyền vào các tham số:
+  1. Activity đang làm việc.
+  2. MoMoConfig.MERCHANT_CODE_VALUE: được định nghĩa trong lớp MoMoConfig, mã được Mservice cung cấp riêng cho mỗi đối tác.
+
 
 Trước khi sử dụng SDK gọi các hàm thiết lập MERCHANT_CODE,  MERCHANT_NAME_LABEL, CLIENT_IP_ADDRESS, PUBLIC_KEY (chỉ cần khởi tạo 1 lần duy nhất):
 
