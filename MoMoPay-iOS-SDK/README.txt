@@ -80,9 +80,3 @@ Buoc 2: add button Thanh toan bằng Vi MoMo vao khu vuc ban can hien thi (Vi du
  Dữ liệu trả về khi request Token: dạng JSON
  - giá trị của key "status" = 0: thành công.
  - giá trị của "status" <> 0: có lỗi xảy ra. Thông báo lỗi có trong key "message".
- 
-Tham khảo thêm ví dụ mẫu tại SampleApp-Xcode hoặc SampleApp-Swift
-
-Created By Lanh Luu 
-lanh.luu@mservice.com.vn
-Copyright @MoMo 2015
