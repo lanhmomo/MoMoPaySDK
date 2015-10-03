@@ -56,11 +56,11 @@ Trong MoMoPay SDK, Lớp MoMoPayment chứa tất cả giao diện cần thiết
  
 3.2 Request token: Mở app MoMo để lấy token thanh toán từ việc mở app MoMo
 Cần param các thông tin khi gọi hàm mở app MoMo để lấy token
-- merchanttransId (Mã duy nhất trên hệ thống của đối tác cho 1 giao dịch để đối soát với hệ thống MoMo): bắt buộc
-- amount (Số tiền thanh toán): bắt buộc
-- fee (Phí chưa áp dụng): không bắt buộc 
-- description (Nội dung thanh toán do Đối tác gửi qua lúc mở POPUP trên app MoMo): không bắt buộc 
--  username : Là trường dữ liệu định danh người dùng của Merchant : không bắt buộc 
+- merchanttransId: Mã duy nhất trên hệ thống của đối tác cho 1 giao dịch để đối soát với hệ thống MoMo): bắt buộc
+- amount: Số tiền thanh toán (bắt buộc)
+- fee: Phí của Merchant áp dụng đối với người dùng đang giao dịch (không bắt buộc)
+- description: Nội dung thanh toán do Đối tác gửi qua lúc mở POPUP trên app MoMo (không bắt buộc)
+- username : Là trường dữ liệu định danh người dùng của Merchant (không bắt buộc)
 
 Buoc  1: Khoi tao Payment info và thêm button MoMoPay vào vùng cần hiển thị
 NSMutableDictionary *paymentinfo = [[NSMutableDictionary alloc] init];
