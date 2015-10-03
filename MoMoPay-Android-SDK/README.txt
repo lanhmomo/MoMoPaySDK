@@ -34,11 +34,11 @@ MoMo để lấy token và gửi lệnh thanh toán.
   3.2 Thiết lập sự kiện setOnClickListener cho nút vừa mới tạo, trong hàm onClick(View v) gọi hàm MoMoPayment.getTokenByTID
   (...) và truyền vào các tham số:
     1. Activity đang làm việc.
-    2. merchanttransId: mã duy nhất trên hệ thống của đối tác cho 1 giao dịch để đối soát về sau với Mservice.
-    3. Số tiền giao dịch.
-    4. Phí giao dịch.
-    5. description: nội dung thanh toán.
-    6. userName: tên của người giao dịch.
+    2. merchanttransId: Mã duy nhất trên hệ thống của đối tác cho 1 giao dịch để đối soát với MoMo. (bắt buộc)
+    3. Số tiền giao dịch. (bắt buộc)
+    4. Phí giao dịch. Phí của Merchant áp dụng đối với người dùng đang giao dịch (không bắt buộc)
+    5. description: nội dung thanh toán. (không bắt buộc)
+    6. userName: tên của người giao dịch. (không bắt buộc)
 
   3.3 implements RequestToServerAsyncTask.RequestToServerListener để override receiveResultFromServer(String result để 
   nhận kết quả trả về từ server của MoMo là 1 JSONObject có 2 key được định nghĩa trong MoMoConfig.STATUS, MoMoConfig.MESSAGE.
