@@ -31,7 +31,8 @@ MoMo để lấy token và gửi lệnh thanh toán.
     1. Activity đang làm việc.
     2. Đối tượng view cha chứa nút cần thêm vào.
   
-  3.2 Thiết lập sự kiện setOnClickListener cho nút vừa mới tạo, trong hàm onClick(View v) gọi hàm MoMoPayment.getTokenByTID     (...) và truyền vào các tham số:
+  3.2 Thiết lập sự kiện setOnClickListener cho nút vừa mới tạo, trong hàm onClick(View v) gọi hàm MoMoPayment.getTokenByTID
+  (...) và truyền vào các tham số:
     1. Activity đang làm việc.
     2. merchanttransId: mã duy nhất trên hệ thống của đối tác cho 1 giao dịch để đối soát về sau với Mservice.
     3. Số tiền giao dịch.
