@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MoMoPaySDK_Android">
+    <output-path>$PROJECT_DIR$/out/artifacts/MoMoPaySDK_Android</output-path>
+    <root id="archive" name="MoMoPaySDK_Android.jar">
+      <element id="module-output" name="MoMo_Partner" />
+    </root>
+  </artifact>
+</component>

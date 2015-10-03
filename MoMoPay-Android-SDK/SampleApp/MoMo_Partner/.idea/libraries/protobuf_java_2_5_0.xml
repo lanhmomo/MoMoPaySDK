@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="protobuf-java-2.5.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Linh tinh/MoMoTransferVN_Android_ProtoFull - Truoc khi update GG_Adwords va FB SDK - 7.9 .15/libs/protobuf-java-2.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Linh tinh/MoMoTransferVN_Android_ProtoFull - Truoc khi update GG_Adwords va FB SDK - 7.9 .15/libs/android-support-v4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
