@@ -15,9 +15,9 @@ Download MoMoPaySDK cho Android và import thư viện vào IDE.
      1. MoMoConfig.MERCHANT_CODE_VALUE: được định nghĩa trong lớp MoMoConfig, được Mservice cung cấp.
      2. MoMoConfig.REQUEST_URL: địa chỉ gọi đến server của MoMo, được Mservice cung cấp.
      3. MoMoConfig.PUBLIC_KEY: để mã hóa ra hash, được Mservice cung cấp.
-     4. MerchantNameLabel: tiêu đề của tên công ty, được định nghĩa trong res/values/strings.xml với name:supplier_title,
-     không cần thiết lập cũng được, mặc định là "Nhà cung cấp".
-     5. MerchantName: tên của quý công ty, được định nghĩa trong res/values/strings.xml với name:supplier_name, mặc định là
+     4. Merchant Name Label: tiêu đề của tên công ty, được định nghĩa trong res/values/strings.xml với name:supplier_title,
+     không thiết lập cũng được, mặc định là "Nhà cung cấp".
+     5. Merchant Name: tên của Quý công ty, được định nghĩa trong res/values/strings.xml với name:supplier_name, mặc định là
      "Công ty ABC".
      
 
@@ -31,8 +31,8 @@ MoMo để lấy token và gửi lệnh thanh toán.
     1. Activity đang làm việc.
     2. Đối tượng view cha chứa nút cần thêm vào.
   
-  3.2 Thiết lập sự kiện setOnClickListener cho nút vừa mới tạo, trong hàm onClick(View v) gọi hàm MoMoPayment.getTokenByTID
-  (...) và truyền vào các tham số:
+  3.2 Gọi qua app MoMo: Thiết lập sự kiện setOnClickListener cho nút vừa mới tạo, trong hàm onClick(View v) 
+  gọi hàm MoMoPayment.requestToken(...) và truyền vào các tham số:
     1. Activity đang làm việc.
     2. merchanttransId: Mã duy nhất trên hệ thống của đối tác cho 1 giao dịch để đối soát với MoMo. (bắt buộc)
     3. Số tiền giao dịch. (bắt buộc)
@@ -40,12 +40,12 @@ MoMo để lấy token và gửi lệnh thanh toán.
     5. description: nội dung thanh toán. (không bắt buộc)
     6. userName: tên của người giao dịch. (không bắt buộc)
 
-  3.3 implements RequestToServerAsyncTask.RequestToServerListener để override receiveResultFromServer(String result để 
+  3.3 implements RequestToServerAsyncTask.RequestToServerListener để override receiveResultFromServer(String result) để 
   nhận kết quả trả về từ server của MoMo là 1 JSONObject có 2 key được định nghĩa trong MoMoConfig.STATUS, MoMoConfig.MESSAGE.
     giá trị của status = 0: thành công.
     giá trị của status = 1, 2, 3: lỗi.
 
-  3.4 Override hàm onActivityResult(...) để nhận kết quả trả về (tham khảo SampleApp).
+  3.4 Override hàm onActivityResult(...) để nhận kết quả trả về từ app MoMo(tham khảo SampleApp).
     1. Nhận data trả về từ MoMo app.
     2. Gọi lệnh "RequestToServerAsyncTask(this, this).execute(token);" để gửi yêu cầu thanh toán lên server bên MoMo.
     
