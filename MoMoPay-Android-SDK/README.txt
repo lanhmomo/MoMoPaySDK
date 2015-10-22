@@ -51,3 +51,5 @@ MoMo để lấy token và gửi lệnh thanh toán.
     
 4. Chạy SDK Samples
 Tham khảo ví dụ mẫu trong SampleApp
+
+Video hướng dẫn: https://www.youtube.com/watch?v=y_zCRqWfIKE&feature=youtu.be 
