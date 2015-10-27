@@ -81,4 +81,7 @@ Buoc 2: add button Thanh toan bằng Vi MoMo vao khu vuc ban can hien thi (Vi du
  - giá trị của key "status" = 0: thành công.
  - giá trị của "status" <> 0: có lỗi xảy ra. Thông báo lỗi có trong key "message".
 
-Video hướng dẫn: https://www.youtube.com/watch?v=y_zCRqWfIKE&feature=youtu.be
+Video hướng dẫn:
+https://www.youtube.com/watch?v=y_zCRqWfIKE&feature=youtu.be
+Sample code và Video được thực hiên trên XCode 6.4 
+
