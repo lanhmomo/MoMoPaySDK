@@ -7,48 +7,33 @@ Các bước tích hợp SDK:
 Download MoMoPaySDK cho Android và import thư viện vào IDE.
 
 2. Cấu hình SDK
-   2.1 Cấu hình <AndroidMainfest.xml>
+   Cấu hình <AndroidMainfest.xml>
      Mở file <AndroidMainfest.xml> trong project Android của bạn.
      Thêm dòng sau để cấu hình phân quyền: <uses-permission android:name="android.permission.INTERNET" />
 
-   2.2 Thiết lập các tham số ban đầu:
-     1. MoMoConfig.MERCHANT_CODE_VALUE: được định nghĩa trong lớp MoMoConfig, được Mservice cung cấp.
-     2. MoMoConfig.REQUEST_URL: địa chỉ gọi đến server của MoMo, được Mservice cung cấp.
-     3. MoMoConfig.PUBLIC_KEY: để mã hóa ra hash, được Mservice cung cấp.
-     4. Merchant Name Label: tiêu đề của tên công ty, được định nghĩa trong res/values/strings.xml với name:supplier_title,
-     không thiết lập cũng được, mặc định là "Nhà cung cấp".
-     5. Merchant Name: tên của Quý công ty, được định nghĩa trong res/values/strings.xml với name:supplier_name, mặc định là
-     "Công ty ABC".
-     
-
 3. Tích hợp thanh toán
-MoMoPay SDK cung cấp lớp MoMoPayment, RequestToServerAsyncTask, MoMoUtils đóng gói tất các hàm dùng để tương tác với hệ thống
+MoMoPay SDK cung cấp lớp MoMoPayment, MoMoConfig, MoMoProgressBar đóng gói tất các hàm dùng để tương tác với hệ thống
 MoMo để lấy token và gửi lệnh thanh toán.
 
 Ở giao diện cần thêm nút thanh toán qua MoMo.
 
-  3.1. Tạo nút thanh toán bằng ví MoMo bằng cách gọi hàm: MoMoPayment.createMoMoPaymentButton(...) và truyền vào các tham số:
-    1. Activity đang làm việc.
-    2. Đối tượng view cha chứa nút cần thêm vào.
-  
-  3.2 Gọi qua app MoMo: Thiết lập sự kiện setOnClickListener cho nút vừa mới tạo, trong hàm onClick(View v) 
-  gọi hàm MoMoPayment.requestToken(...) và truyền vào các tham số:
-    1. Activity đang làm việc.
-    2. merchanttransId: Mã duy nhất trên hệ thống của đối tác cho 1 giao dịch để đối soát với MoMo. (bắt buộc)
-    3. Số tiền giao dịch. (bắt buộc)
-    4. Phí giao dịch. Phí của Merchant áp dụng đối với người dùng đang giao dịch (không bắt buộc)
-    5. description: nội dung thanh toán. (không bắt buộc)
-    6. userName: tên của người giao dịch. (không bắt buộc)
-
-  3.3 implements RequestToServerAsyncTask.RequestToServerListener để override receiveResultFromServer(String result) để 
-  nhận kết quả trả về từ server của MoMo là 1 JSONObject có 2 key được định nghĩa trong MoMoConfig.STATUS, MoMoConfig.MESSAGE.
-    giá trị của status = 0: thành công.
-    giá trị của status = 1, 2, 3: lỗi.
-
-  3.4 Override hàm onActivityResult(...) để nhận kết quả trả về từ app MoMo(tham khảo SampleApp).
-    1. Nhận data trả về từ MoMo app.
-    2. Gọi lệnh "RequestToServerAsyncTask(this, this).execute(token);" để gửi yêu cầu thanh toán lên server bên MoMo.
-    
+  3.1. Tạo nút thanh toán bằng ví MoMo, rồi trong sự kiện onClick() của nút hãy gọi hàm: MoMoPayment.requestToken(...) và truyền vào các tham số:
+    1. Activity đang làm việc (Activity activity).
+    2. Số tiền cần thanh toán (int amount).
+    3. Phí (của bên các bạn, nếu có) (int fee).
+    4. Nội dung thanh toán (String description).
+    5. Tên của người sử dụng (String userName).
+    6. Mã merchant do bên MoMo cung cấp(String merchantCode).
+    7. Tiêu đề (ví dụ : Nhà cung cấp)(String merchantNameLabel).
+    8. Tên nhà cung cấp (Ví dụ : Công ty ABC) (String merchantName).
+    9. Các tham số muốn truyền thêm tùy ý, dạng Json, sẽ được nhận lại từ app MoMo trong hàm onActivityResult (data.getStringExtra(MoMoConfig.DATA), đã được mã hóa) (JSONObject jsObj).
+ 
+  3.2 Override hàm onActivityResult(...) để nhận kết quả trả về từ app MoMo(tham khảo SampleApp).
+    1. Nhận data trả về từ MoMo app gồm các key:
+    2. "status" : kết quả trả về: 0 là thành công, các trạng thái lỗi còn lại được mô tả chi tiết trong file hướng dẫn
+    3. "message" : nội dung thông báo trả về
+    4. "data" : dữ liệu đã được mã hóa từ app MoMo trả về.
+    5. "phonenumber" : số điện thoại đang đăng nhập app MoMo.
 4. Chạy SDK Samples
 Tham khảo ví dụ mẫu trong SampleApp
 
