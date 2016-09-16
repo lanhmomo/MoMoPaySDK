@@ -26,8 +26,13 @@
 
 #define MOMO_NOTIFICATION_CENTER_TOKEN_RECEIVED  @"NoficationCenterTokenReceived"
 #define MOMO_APP_BUNDLE_ID    @"com.mservice.com.vn.MoMoTransfer"
-#define MOMO_PAY_SDK_VERSION  @"1.0"
+#define MOMO_PAY_SDK_VERSION  @"2.0"
 #define MOMO_APP_ITUNES_DOWNLOAD_PATH @"itms-apps://itunes.apple.com/us/app/momo-chuyen-nhan-tien/id918751511"
+
+#define APP_MERCHANT_ACTION_KEY  @"APP_MERCHANT_ACTION_KEY"
+
+#define MOMO_PAY_SDK_ACTION_GETTOKEN  @"gettoken"
+#define MOMO_PAY_SDK_ACTION_MAPPING  @"mapping"
 
 #define MOMO_TOKEN_RESPONSE_SUCCESS @"0"
 #define MOMO_TOKEN_RESPONSE_REGISTER_PHONE_NUMBER_REQUIRE @"1"
@@ -36,7 +41,12 @@
 
 #define MOMO_HTTP @"http://"
 #define MOMO_HTTPS @"https://"
-#define MOMO_REQUEST_PATH @"10.10.10.186:8082/paygamebill" //@"apptest2.momo.vn:8091/momopayment"
+
+/*
+ Sanbox API http://
+ */
+
+#define MOMO_REQUEST_PATH  @"172.16.43.22:8082/paygamebill" //@"apptest2.momo.vn:8091/paygamebill" // 
 #define MOMO_PAYMENT_URL [NSString stringWithFormat:@"%@%@",MOMO_HTTP,MOMO_REQUEST_PATH]
 
 
@@ -68,4 +78,8 @@ static NSString *CLIENT_USERNAME;
 +(NSString*)getMerchantcode;
 +(NSString *)getIPAddress;
 +(NSString*)getDeviceInfoString;
+
++(NSString*)getAction;
+
++(void)setAction:(NSString*)action;
 @end

@@ -16,4 +16,7 @@
 -(void)createPaymentInformation:(NSMutableDictionary*)info;
 -(void)addMoMoPayDefaultButtonToView:(UIView*)parrentView;
 -(UIButton*)addMoMoPayCustomButton:(UIButton*)button forControlEvents:(UIControlEvents)controlEvents toView:(UIView*)parrentView;
+-(NSString*)getAction;
+-(void)setAction:(NSString*)action;
+-(void)updateAmount:(long long)amt;
 @end
