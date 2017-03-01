@@ -1,0 +1,26 @@
+//
+//  MoMoPayPrefix.pch
+//  SampleApp-Xcode
+//
+//  Created by Luu Lanh on 10/4/15.
+//  Copyright (c) 2015 LuuLanh. All rights reserved.
+//
+
+#ifndef SampleApp_Xcode_MoMoPayPrefix_pch
+#define SampleApp_Xcode_MoMoPayPrefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <Foundation/Foundation.h>
+#import "BDRSACryptor.h"
+#import "BDRSACryptorKeyPair.h"
+#import "BDError.h"
+#import "BDLog.h"
+#endif
+
+
+
+#ifdef __OBJC__
+
+#endif
+
