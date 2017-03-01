@@ -1,0 +1,82 @@
+//
+//  MoMoPrefix.pch
+//  SampleApp-Xcode
+//
+//  Created by Luu Lanh on 4/28/16.
+//  Copyright © 2016 LuuLanh. All rights reserved.
+//
+
+#ifndef MoMoPrefix_h
+#define MoMoPrefix_h
+
+
+
+#define MAIN_STORYBOARD  @"Main"
+#define LOGIN_STORYBOARD @"MomoTransfer.iPhone"
+
+#define BALANCE_KEY     @"Balance"
+#define PhoneNumber     @"PhoneNumber"
+#define SECRET_PIN        @"SECRET_PIN"
+#define OldPhoneNumber     @"OldPhoneNumber"
+#define AgentFullName   @"AgentFullName"
+#define MoMoAppDidFinishLaunching @"MoMoApplicationDidFinishLaunching"
+#define AgentReferal   @"AgentReferal"
+
+#define AgentDOB        @"AgentDOB"
+#define AgentCardID     @"AgentCardID"
+#define AgentEmail      @"AgentEmail"
+#define AgentAddress    @"AgentAddress"
+#define AgentType      @"AgentType"
+#define MobilePrefix      @"MobilePrefix"
+
+#define Is_Named        @"IsNamed"
+#define Is_Register     @"IsRegistered"
+#define Is_PhoneActived @"IsPhoneActived"
+
+#define AgentBankName   @"AgentBankName"
+#define AgentBankCode   @"AgentBankCode"
+#define AgentBankAccount @"AgentBankAccount"
+
+#define Remain_Count        @"Remain_Count"
+#define Total_Count_Today   @"Total_Count_Today"
+
+#define Total_Amount_Today  @"Total_Amount_Today"
+#define Max_Limit_Amount    @"Max_Limit_Amount"
+
+
+#define BONUS_POINT     @"Bonus"
+
+#define IMEI_STR        @"Imei"
+#define IMEIKey_STR     @"ImeiKey"
+#define Device_Token    @"DeviceToken"
+#define SessionKeyLogin    @"SessionKeyLogin"
+#define AgentUpdated     @"AgentUpdated"
+
+#define BANK_NET_DYNAMIC_FEE  @"bank_net_dynamic_fee"
+#define BANK_NET_STATIC_FEE   @"bank_net_static_fee"
+
+#define VISA_MASTER_DYNAMIC_FEE  @"visa_master_dynamic_fee"
+#define VISA_MASTER_STATIC_FEE   @"visa_master_static_fee"
+
+#define CASHIN_VISA_MASTER_DYNAMIC_FEE  @"CASHIN_VISA_MASTER_DYNAMIC_FEE"
+#define CASHIN_VISA_MASTER_STATIC_FEE   @"CASHIN_VISA_MASTER_STATIC_FEE"
+
+#define TRANSACTIONID_123Pay  @"TRANSACTIONID_123Pay"
+
+#define MOMO_IP_SERVER           @"MOMO_IP_SERVER"
+
+#define BANK_NET_CARD_SELECTED   @"BANK_NET_CARD_SELECTED"
+#define BANK_NET_ForceRequestOTP @"BANK_NET_ForceRequestOTP"
+//#define
+#define LATEST_EMAIL_CONFIRM_123PHIM     @"LATEST_EMAIL_CONFIRM_123PHIM"
+#define AGENT_MOMOSHOP_POINT_WAITING_REG @"AGENT_MOMOSHOP_POINT_WAITING_REG"
+//#define
+
+#define Enable_MPoint @"Enable_MPoint"
+
+#define TRANSFER_OBJECT_KEY  @"TRANSFER_OBJECT_KEY"
+#define MOMO_TRANSFER_TYPE  @"MOMO_TRANSFER_TYPE"
+
+#define MIN_OBJECT_KEY  @"MINMAX_OBJECT_KEY"
+#define MAX_OBJECT_KEY  @"MINMAX_OBJECT_KEY"
+#endif /* MoMoPrefix_h */
