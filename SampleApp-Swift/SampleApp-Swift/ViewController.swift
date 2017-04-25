@@ -304,10 +304,7 @@ class ViewController: UIViewController {
         //Buoc 2: add button Thanh toan bang Vi MoMo vao khu vuc ban can hien thi (Vi du o day la vung paymentArea)
         ///Default MoMo Button [[MoMoPayment shareInstant] addMoMoPayDefaultButtonToView:paymentArea];
         ///Custom button
-        
-        
-        
-        //Code của bạn
+
         self.view.addSubview(paymentArea)
         
     }
