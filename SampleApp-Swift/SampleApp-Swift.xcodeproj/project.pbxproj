@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		87BDC1E11EAE5991001F6825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BDC1E01EAE5991001F6825 /* AppDelegate.swift */; };
+		87BDC1E31EAE5991001F6825 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BDC1E21EAE5991001F6825 /* ViewController.swift */; };
+		87BDC1E61EAE5991001F6825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BDC1E41EAE5991001F6825 /* Main.storyboard */; };
+		87BDC1E81EAE5991001F6825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87BDC1E71EAE5991001F6825 /* Assets.xcassets */; };
+		87BDC1EB1EAE5991001F6825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BDC1E91EAE5991001F6825 /* LaunchScreen.storyboard */; };
+		87BDC1F41EAE59D9001F6825 /* MoMoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BDC1F31EAE59D9001F6825 /* MoMoConfig.swift */; };
+		87BDC1F61EAE5A14001F6825 /* MoMoPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BDC1F51EAE5A14001F6825 /* MoMoPayment.swift */; };
+		87BDC1FC1EAE5C2C001F6825 /* MoMoPaySDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BDC1FB1EAE5C2C001F6825 /* MoMoPaySDK.swift */; };
+		87BDC2141EAE77AE001F6825 /* momo.png in Resources */ = {isa = PBXBuildFile; fileRef = 87BDC20A1EAE77AE001F6825 /* momo.png */; };
+		87BDC2151EAE77AE001F6825 /* momo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87BDC20B1EAE77AE001F6825 /* momo@2x.png */; };
+		87BDC2161EAE77AE001F6825 /* momo_highlights.png in Resources */ = {isa = PBXBuildFile; fileRef = 87BDC20C1EAE77AE001F6825 /* momo_highlights.png */; };
+		87BDC2171EAE77AE001F6825 /* momo_highlights@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87BDC20D1EAE77AE001F6825 /* momo_highlights@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		87BDC1DD1EAE5991001F6825 /* SampleApp-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SampleApp-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		87BDC1E01EAE5991001F6825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		87BDC1E21EAE5991001F6825 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		87BDC1E51EAE5991001F6825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		87BDC1E71EAE5991001F6825 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		87BDC1EA1EAE5991001F6825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		87BDC1EC1EAE5991001F6825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87BDC1F31EAE59D9001F6825 /* MoMoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoMoConfig.swift; sourceTree = "<group>"; };
+		87BDC1F51EAE5A14001F6825 /* MoMoPayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoMoPayment.swift; sourceTree = "<group>"; };
+		87BDC1F71EAE5AB5001F6825 /* SampleApp-Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SampleApp-Swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		87BDC1FB1EAE5C2C001F6825 /* MoMoPaySDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoMoPaySDK.swift; sourceTree = "<group>"; };
+		87BDC20A1EAE77AE001F6825 /* momo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = momo.png; sourceTree = "<group>"; };
+		87BDC20B1EAE77AE001F6825 /* momo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "momo@2x.png"; sourceTree = "<group>"; };
+		87BDC20C1EAE77AE001F6825 /* momo_highlights.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = momo_highlights.png; sourceTree = "<group>"; };
+		87BDC20D1EAE77AE001F6825 /* momo_highlights@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "momo_highlights@2x.png"; sourceTree = "<group>"; };
+		87BDC20E1EAE77AE001F6825 /* MoMoPayPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoMoPayPrefix.pch; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		87BDC1DA1EAE5991001F6825 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		87BDC1D41EAE5991001F6825 = {
+			isa = PBXGroup;
+			children = (
+				87BDC1DF1EAE5991001F6825 /* SampleApp-Swift */,
+				87BDC1DE1EAE5991001F6825 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		87BDC1DE1EAE5991001F6825 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				87BDC1DD1EAE5991001F6825 /* SampleApp-Swift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		87BDC1DF1EAE5991001F6825 /* SampleApp-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				87BDC1F21EAE59C7001F6825 /* MoMoAPI */,
+				87BDC1E01EAE5991001F6825 /* AppDelegate.swift */,
+				87BDC1E21EAE5991001F6825 /* ViewController.swift */,
+				87BDC1E41EAE5991001F6825 /* Main.storyboard */,
+				87BDC1E71EAE5991001F6825 /* Assets.xcassets */,
+				87BDC1E91EAE5991001F6825 /* LaunchScreen.storyboard */,
+				87BDC1EC1EAE5991001F6825 /* Info.plist */,
+			);
+			path = "SampleApp-Swift";
+			sourceTree = "<group>";
+		};
+		87BDC1F21EAE59C7001F6825 /* MoMoAPI */ = {
+			isa = PBXGroup;
+			children = (
+				87BDC2091EAE77AE001F6825 /* Resource */,
+				87BDC1F31EAE59D9001F6825 /* MoMoConfig.swift */,
+				87BDC1F51EAE5A14001F6825 /* MoMoPayment.swift */,
+				87BDC1FB1EAE5C2C001F6825 /* MoMoPaySDK.swift */,
+				87BDC1F71EAE5AB5001F6825 /* SampleApp-Swift-Bridging-Header.h */,
+			);
+			path = MoMoAPI;
+			sourceTree = "<group>";
+		};
+		87BDC2091EAE77AE001F6825 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				87BDC20A1EAE77AE001F6825 /* momo.png */,
+				87BDC20B1EAE77AE001F6825 /* momo@2x.png */,
+				87BDC20C1EAE77AE001F6825 /* momo_highlights.png */,
+				87BDC20D1EAE77AE001F6825 /* momo_highlights@2x.png */,
+				87BDC20E1EAE77AE001F6825 /* MoMoPayPrefix.pch */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		87BDC1DC1EAE5991001F6825 /* SampleApp-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87BDC1EF1EAE5991001F6825 /* Build configuration list for PBXNativeTarget "SampleApp-Swift" */;
+			buildPhases = (
+				87BDC1D91EAE5991001F6825 /* Sources */,
+				87BDC1DA1EAE5991001F6825 /* Frameworks */,
+				87BDC1DB1EAE5991001F6825 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SampleApp-Swift";
+			productName = "SampleApp-Swift";
+			productReference = 87BDC1DD1EAE5991001F6825 /* SampleApp-Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		87BDC1D51EAE5991001F6825 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = LuuLanh;
+				TargetAttributes = {
+					87BDC1DC1EAE5991001F6825 = {
+						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 87BDC1D81EAE5991001F6825 /* Build configuration list for PBXProject "SampleApp-Swift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 87BDC1D41EAE5991001F6825;
+			productRefGroup = 87BDC1DE1EAE5991001F6825 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				87BDC1DC1EAE5991001F6825 /* SampleApp-Swift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		87BDC1DB1EAE5991001F6825 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87BDC2171EAE77AE001F6825 /* momo_highlights@2x.png in Resources */,
+				87BDC1EB1EAE5991001F6825 /* LaunchScreen.storyboard in Resources */,
+				87BDC1E81EAE5991001F6825 /* Assets.xcassets in Resources */,
+				87BDC2161EAE77AE001F6825 /* momo_highlights.png in Resources */,
+				87BDC2151EAE77AE001F6825 /* momo@2x.png in Resources */,
+				87BDC1E61EAE5991001F6825 /* Main.storyboard in Resources */,
+				87BDC2141EAE77AE001F6825 /* momo.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		87BDC1D91EAE5991001F6825 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87BDC1E31EAE5991001F6825 /* ViewController.swift in Sources */,
+				87BDC1FC1EAE5C2C001F6825 /* MoMoPaySDK.swift in Sources */,
+				87BDC1E11EAE5991001F6825 /* AppDelegate.swift in Sources */,
+				87BDC1F61EAE5A14001F6825 /* MoMoPayment.swift in Sources */,
+				87BDC1F41EAE59D9001F6825 /* MoMoConfig.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		87BDC1E41EAE5991001F6825 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87BDC1E51EAE5991001F6825 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		87BDC1E91EAE5991001F6825 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87BDC1EA1EAE5991001F6825 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		87BDC1ED1EAE5991001F6825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		87BDC1EE1EAE5991001F6825 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		87BDC1F01EAE5991001F6825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "SampleApp-Swift/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vn.momo.sdk.demoswift.SampleApp-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SampleApp-Swift/MoMoAPI/SampleApp-Swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		87BDC1F11EAE5991001F6825 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "SampleApp-Swift/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vn.momo.sdk.demoswift.SampleApp-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SampleApp-Swift/MoMoAPI/SampleApp-Swift-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		87BDC1D81EAE5991001F6825 /* Build configuration list for PBXProject "SampleApp-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87BDC1ED1EAE5991001F6825 /* Debug */,
+				87BDC1EE1EAE5991001F6825 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		87BDC1EF1EAE5991001F6825 /* Build configuration list for PBXNativeTarget "SampleApp-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87BDC1F01EAE5991001F6825 /* Debug */,
+				87BDC1F11EAE5991001F6825 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 87BDC1D51EAE5991001F6825 /* Project object */;
+}
