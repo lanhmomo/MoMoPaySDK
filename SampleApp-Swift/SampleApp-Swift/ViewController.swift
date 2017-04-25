@@ -5,7 +5,6 @@
 //  Created by Luu Lanh on 4/24/17.
 //  Copyright © 2017 LuuLanh. All rights reserved.
 //
-
 import UIKit
 
 
@@ -149,7 +148,7 @@ class ViewController: UIViewController {
         //paymentArea.backgroundColor = UIColor.whiteColor()
         
         let paymentArea:UIView = UIView()
-        paymentArea.frame = CGRect(x: 20, y: 100, width: 300, height: 300)
+        paymentArea.frame = CGRect(x: 20, y: 100, width: 300, height: 500)
         paymentArea.backgroundColor=UIColor.clear
         
         //var imgMoMo = UIImageView(frame: CGRectMake(0, 0, 50, 50))
@@ -197,7 +196,7 @@ class ViewController: UIViewController {
         
         //let lblMessage:UILabel = UILabel()
         lblMessage = UILabel()
-        lblMessage.frame = CGRect(x: 60, y: 100, width: 300, height: 200)
+        lblMessage.frame = CGRect(x: 10, y: 150, width: 300, height: 250)
         lblMessage.text = "{MoMo Response}"
         lblMessage.font = UIFont.systemFont(ofSize: 15)
         lblMessage.backgroundColor = UIColor.clear
@@ -313,4 +312,3 @@ class ViewController: UIViewController {
         
     }
 }
-
