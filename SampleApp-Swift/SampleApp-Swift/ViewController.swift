@@ -294,7 +294,7 @@ class ViewController: UIViewController {
         
         //Buoc 1: Khoi tao Payment info, add button MoMoPay
         let paymentinfo = NSMutableDictionary()
-        paymentinfo[MOMO_PAY_CLIENT_MERCHANT_TRANS_ID] = "41129898989"
+        paymentinfo[MOMO_PAY_CLIENT_MERCHANT_TRANS_ID] = ""
         paymentinfo[MOMO_PAY_CLIENT_AMOUNT_TRANSFER] = amount
         paymentinfo[MOMO_PAY_CLIENT_FEE_TRANSFER] = fee
         paymentinfo[MOMO_PAY_CLIENT_USERNAME] = username
