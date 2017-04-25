@@ -13,6 +13,8 @@ class ViewController: UIViewController {
 
     var lblMessage: UILabel!
     var txtAmount: UITextField!
+    var btnPay :UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +37,12 @@ class ViewController: UIViewController {
     func NoficationCenterTokenReceived(notif: NSNotification) {
         //Token Replied - Call Payment to MoMo Server
         print("::MoMoPay Log::Received Token Replied::\(notif.object!)")
-        lblMessage.text = "RequestToken response:\n \(notif.object!)"
+        lblMessage.text = "RequestToken response:\n  \(notif.object as Any)"
         
-        let response:NSMutableDictionary     = notif.object as! NSMutableDictionary
+        let response:NSDictionary = notif.object! as! NSDictionary
         
-        print(">>response::\(notif.object!)")
-        print(">>status::\(response["status"] as! String)   :: message \(response["message"] as! String) ")
         
-        let _status:Int = Int(response.value(forKey: "status") as! String)!
+        let _status = response["status"] as? Int
         
         if _status == 0 {
             
@@ -50,32 +50,19 @@ class ViewController: UIViewController {
             print(">>phone \(response["phonenumber"] as! String)   :: data \(response["data"] as! String)")
             
             let merchant_code       = "SCB01"
-            let merchant_transaction_id = "123456789"
-            let merchant_bill_id        = "bill1001"
-            let merchant_username       = "username_001"
-            let merchant_server_ip       = "192.16.17.120"
+            let merchant_username       = "username_or_email_or_fullname"
             
             let orderInfo = NSMutableDictionary();
             orderInfo.setValue(Int(10000),			forKey: "amount");
             orderInfo.setValue(Int(0),			forKey: "fee");
             orderInfo.setValue(merchant_code,			forKey: "merchantcode");
-            orderInfo.setValue(merchant_transaction_id,			forKey: "transid");
-            orderInfo.setValue(merchant_bill_id,			forKey: "billid");
             orderInfo.setValue(merchant_username,			forKey: "username");
             orderInfo.setValue(response["phonenumber"] as! String,			forKey: "phonenumber");
+            orderInfo.setValue(response["data"] as! String,			forKey: "data");
 
+            lblMessage.text = "Processing..."
+            submitOrderToServer(parram: orderInfo)
             
-            let your_hash_value_sample = "RSA_orderInfo_by_public_key" ;// RSA orderInfo json using MoMo's Public key
-            
-            
-            let dataPayment : NSMutableDictionary = NSMutableDictionary()
-            dataPayment .setValue(merchant_code,                       forKey: "merchantcode")
-            dataPayment.setValue(your_hash_value_sample,		 forKey: "hash");
-            dataPayment.setValue(merchant_server_ip,		 forKey: "ipaddress");
-            dataPayment.setValue(response["data"] as! String,		 forKey: "data");
-            dataPayment.setValue(response["phonenumber"] as! String,	 forKey: "phonenumber");
-
-            //MoMoPayment.sharedInstance.requestPayment(parram: dataPayment)
             lblMessage.text = "RequestToken response:\n \(notif.object!) | Please continue to proccess on server "
         }
         else{
@@ -83,17 +70,107 @@ class ViewController: UIViewController {
         }
     }
     
+    func submitOrderToServer(parram: NSMutableDictionary) {
+        btnPay.backgroundColor = UIColor.gray
+        btnPay.isEnabled = false
+        /*Send client request to your Server here*/
+ 
+        /*
+        let clientPakageDefine = "{\"data\":\"\(parram["data"] as! String)\",\"merchantcode\":\"\(MoMoConfig.getMerchantcode())\",\"amount\":\"\(parram["amount"] as! String)\",\"username\":\"\(parram["username"] as! String)\",\"email\":\"\(parram["email"] as! String)\"}"
+        
+        do {
+            
+            let jsonData = try JSONSerialization.data(withJSONObject: clientPakageDefine, options: .prettyPrinted)
+            
+            // create post request
+            let url = NSURL(string: "http://www.your_domain_api.com/api")!
+            let request = NSMutableURLRequest(url: url as URL)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("gzip", forHTTPHeaderField: "Accept-Encoding")
+            request.httpBody = jsonData
+            
+            let task = URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
+                if error != nil{
+                    //print("Error -> \(String(describing: error))")
+         
+                }
+                
+                do {
+                    //print("Success -> \(response)")
+                    
+                } catch {
+                    //print("Error -> \(error)")
+                }
+            }
+            
+            task.resume()
+            
+        } catch {
+            print(error)
+        } */
+        
+        
+/**********BEGIN Sample send request on Your Server -To - MoMo Server
+ **********WARNING: need to remove it on your product app
+ **********/
+        let merchant_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkpa+qMXS6O11x7jBGo9W3yxeHEsAdyDE40UoXhoQf9K6attSIclTZMEGfq6gmJm2BogVJtPkjvri5/j9mBntA8qKMzzanSQaBEbr8FyByHnf226dsLt1RbJSMLjCd3UC1n0Yq8KKvfHhvmvVbGcWfpgfo7iQTVmL0r1eQxzgnSq31EL1yYNMuaZjpHmQuT24Hmxl9W9enRtJyVTUhwKhtjOSOsR03sMnsckpFT9pn1/V9BE2Kf3rFGqc6JukXkqK6ZW9mtmGLSq3K+JRRq2w8PVmcbcvTr/adW4EL2yc1qk9Ec4HtiDhtSYd6/ov8xLVkKAQjLVt7Ex3/agRPfPrNwIDAQAB"
+        let merchant_code       = "SCB01"
+        let merchant_transaction_id = "123456789"
+        let merchant_bill_id        = "bill1001"
+        let merchant_username       = "username_or_email_or_fullname"
+        let merchant_server_ip       = "192.16.17.120"
+        var your_hash_value_sample = "RSA_orderInfo_by_public_key" ;// RSA orderInfo json using MoMo's Public key
+        
+        // tag name to access the stored public key in keychain
+        let TAG_PUBLIC_KEY = ""
+        
+        let hash_plaintext = "{\"merchantcode\":\"\(merchant_code)\",\"transid\":\"\(merchant_transaction_id)\",\"billid\":\"\(merchant_bill_id)\",\"amount\":10000,\"fee\":0,\"phonenumber\":\"\(parram["phonenumber"] as! String)\",\"username\":\"\(merchant_username)\"}"
+        
+        let hash_encrypted = RSAUtils.encryptWithRSAPublicKey(hash_plaintext.data(using: String.Encoding.utf8)!, pubkeyBase64: merchant_public_key, keychainTag: TAG_PUBLIC_KEY)
+        if ( hash_encrypted == nil ) {
+            print("Error while encrypting ")
+        } else {
+            your_hash_value_sample = hash_encrypted!.base64EncodedString(options: NSData.Base64EncodingOptions())
+            print("::Encrypted =  \(your_hash_value_sample)")
+        }
+        
+        
+        let dataPayment : NSMutableDictionary = NSMutableDictionary()
+        dataPayment .setValue(merchant_code,                       forKey: "merchantcode")
+        dataPayment.setValue(your_hash_value_sample,		 forKey: "hash");
+        dataPayment.setValue(merchant_server_ip,		 forKey: "ipaddress");
+        dataPayment.setValue(parram["data"] as! String,		 forKey: "data");
+        dataPayment.setValue(parram["phonenumber"] as! String,	 forKey: "phonenumber");
+        
+        MoMoPayment.sharedInstance.requestPayment(parram: parram)
+/**********END Sample send request on Your Server -To - MoMo Server
+**********WARNING: need to remove it on your product app
+**********/
+        
+    }
+    
     func NoficationCenterCreateOrderReceived(notif: NSNotification) {
+        
         //Payment Order Replied
         //    NSString *responseString = [[NSString alloc] initWithData:[notif.object dataUsingEncoding:NSUTF8StringEncoding] encoding:NSUTF8StringEncoding];
         //
-        print("::MoMoPay Log::Request Payment Replied::\(notif.object!)")
+        btnPay.backgroundColor = UIColor.purple
+        btnPay.isEnabled = true
+        
+        if notif.object == nil {
+            lblMessage.text = "ERROR!"
+            return;
+        }
+        print("::MoMoPay Log::Request Payment Replied::\(notif.object as Any)")
 
-        lblMessage.text = "RequestPayViaMoMo response:\n \(notif.object!)"
-        if (notif.object! is [NSObject : AnyObject]) {
+        
+        if (notif.object! is NSDictionary) {
+            
             let response:NSDictionary = notif.object! as! NSDictionary
 
-            let _status:Int = Int(response.value(forKey: "status") as! String)!
+            let _status = response["status"] as? Int
+            
             if _status == 0 {
                 print("::MoMoPay Log::Payment Success")
             }
@@ -101,7 +178,12 @@ class ViewController: UIViewController {
                 print("::MoMoPay Log::Payment Error::\(response["message"] as! String)")
             }
             
+            lblMessage.text = "RequestPayViaMoMo response:\n\n status: \(String(describing: _status)) \n message: \(response["message"] as! String)"
+            
             //continue your checkout order here
+        }
+        else{
+            lblMessage.text = "RequestPayViaMoMo response:\n \(notif.object as Any)"
         }
     }
     
@@ -183,7 +265,8 @@ class ViewController: UIViewController {
         paymentArea.addSubview(line)
         
         //Tạo button Thanh toán bằng Ví MoMo
-        var btnPay:UIButton = UIButton()
+        //var btnPay:UIButton = UIButton()
+        btnPay = UIButton()
         btnPay.frame = CGRect(x: 10, y: 100, width: 260, height: 40)
         btnPay.setTitle("Pay Via MoMo Wallet", for: .normal)
         btnPay.setTitleColor(UIColor.white, for: .normal)
@@ -193,7 +276,7 @@ class ViewController: UIViewController {
         
         //let lblMessage:UILabel = UILabel()
         lblMessage = UILabel()
-        lblMessage.frame = CGRect(x: 60, y: 100, width: 300, height: 200)
+        lblMessage.frame = CGRect(x: 10, y: 120, width: 300, height: 200)
         lblMessage.text = "{MoMo Response}"
         lblMessage.font = UIFont.systemFont(ofSize: 15)
         lblMessage.backgroundColor = UIColor.clear
@@ -226,6 +309,7 @@ class ViewController: UIViewController {
         
         //Code của bạn
         self.view.addSubview(paymentArea)
+        
     }
 }
 

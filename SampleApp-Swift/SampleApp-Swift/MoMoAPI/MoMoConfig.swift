@@ -42,8 +42,8 @@ let MOMO_TOKEN_RESPONSE_NO_WALLET = "3"
 let MOMO_HTTP = "http://"
 let MOMO_HTTPS = "https://"
 /*
- Sanbox API http://  apptest2.momo.vn:8091/paygamebill
- Production API http:// app.momo.vn:8082/paygamebill
+ Sanbox API apptest2.momo.vn:8091/paygamebill
+ Production app.momo.vn:8082/paygamebill
  
  */
 let MOMO_REQUEST_PATH = "apptest2.momo.vn:8091/paygamebill"

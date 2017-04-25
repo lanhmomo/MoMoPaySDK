@@ -173,11 +173,27 @@ class MoMoPayment: NSObject {
     
     open func requestPayment(parram: NSMutableDictionary) {
         //Sample send request Server-To-Server
-        let jsonHash = "{\"data\":\"\(parram["data"] as! String)\",\"hash\":\"\(parram["hash"] as! String)\",\"ipaddress\":\"\(parram["ipaddress"] as! String)\",\"merchantcode\":\"\(MoMoConfig.getMerchantcode())\",\"phonenumber\":\"\(parram["phonenumber"] as! String)\"}"
+//        let jsonHash = "{\"data\":\"\(parram["data"] as! String)\",\"hash\":\"\(parram["hash"] as! String)\",\"ipaddress\":\"\(parram["ipaddress"] as! String)\",\"merchantcode\":\"\(MoMoConfig.getMerchantcode())\",\"phonenumber\":\"\(parram["phonenumber"] as! String)\"}"
+//        
+//        
+//        do {
+//            let jsonData = try JSONSerialization.data(withJSONObject: parram, options: .prettyPrinted)
+//            // here "jsonData" is the dictionary encoded in JSON data
+//            
+//            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
+//            // here "decoded" is of type `Any`, decoded from JSON data
+//            
+//            // you can now cast it with the right type
+//            if let dictFromJSON = decoded as? [String:String] {
+//                // use dictFromJSON
+//            }
+//        } catch {
+//            print(error.localizedDescription)
+//        }
         
         do {
             
-            let jsonData = try JSONSerialization.data(withJSONObject: jsonHash, options: .prettyPrinted)
+            let jsonData = try JSONSerialization.data(withJSONObject: parram, options: .prettyPrinted)
             
             // create post request
             let url = NSURL(string: MOMO_PAYMENT_URL)!
@@ -189,19 +205,21 @@ class MoMoPayment: NSObject {
             
             let task = URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
                 if error != nil{
-                    //print("Error -> \(String(describing: error))")
-                    NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: nil, userInfo: nil)
+                    print("Error -> \(String(describing: error))")
+                    NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: String(describing: error), userInfo: nil)
+                }
+                else{
+                    do {
+                        let result = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
+                        
+                        NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: result, userInfo: nil)
+                        
+                    } catch {
+                        //print("Error -> \(error)")
+                        NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: String(describing: error), userInfo: nil)
+                    }
                 }
                 
-                do {
-                    let result = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
-                    
-                    NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: result, userInfo: nil)
-                    
-                } catch {
-                    //print("Error -> \(error)")
-                    NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: nil, userInfo: nil)
-                }
             }
             
             task.resume()
