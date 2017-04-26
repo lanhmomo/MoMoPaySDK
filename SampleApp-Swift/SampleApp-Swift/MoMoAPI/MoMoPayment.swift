@@ -121,7 +121,7 @@ class MoMoPayment: NSObject {
         appSource = appSource.removingPercentEncoding! as String
         appSource = appSource.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
 
-        print(appSource)
+        //print(appSource)
         //let ourURL:URL = (NSURL(string: appSource)?.absoluteURL)! as URL  ;//URL(string: appSource)!
         
         if let urlAppMoMo = URL(string: appSource) {
