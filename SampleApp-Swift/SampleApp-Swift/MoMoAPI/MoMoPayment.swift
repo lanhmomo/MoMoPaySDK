@@ -56,17 +56,24 @@ class MoMoPayment: NSObject {
             print("<MoMoPay> Do nothing")
         }
     }
+    
     open func getDictionaryFromUrlQuery(query: String) -> (NSDictionary) {
         let info : NSMutableDictionary = NSMutableDictionary()
         
-        for parameter in query.components(separatedBy:"&"){
+        var correctQuery = query.replacingOccurrences(of: "===", with: "[333]", options: .literal, range: nil)
+        correctQuery = query.replacingOccurrences(of: "==", with: "[33]", options: .literal, range: nil)
+        
+        
+        for parameter in correctQuery.components(separatedBy:"&"){
             let parts = parameter.components(separatedBy:"=")
             if parts.count > 1{
                 let key = (parts[0] as String).removingPercentEncoding
-                let value = (parts[1] as String).removingPercentEncoding
+                let value = (parts[1] as String)  //.removingPercentEncoding
                 if key != nil && value != nil{
                     //info[key!] = value
-                    info.setValue(value, forKey: key!)
+                    var correctValue = value.replacingOccurrences(of: "[333]", with: "===", options: .literal, range: nil)
+                    correctValue = value.replacingOccurrences(of: "[33]", with: "==", options: .literal, range: nil)
+                    info.setValue(correctValue, forKey: key!)
                 }
             }
         }
