@@ -276,6 +276,8 @@ class ViewController: UIViewController {
         /**********BEGIN Sample send request on Your Server -To - MoMo Server
          **********WARNING: need to remove it on your product app
          **********/
+        
+        
         let merchant_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkpa+qMXS6O11x7jBGo9W3yxeHEsAdyDE40UoXhoQf9K6attSIclTZMEGfq6gmJm2BogVJtPkjvri5/j9mBntA8qKMzzanSQaBEbr8FyByHnf226dsLt1RbJSMLjCd3UC1n0Yq8KKvfHhvmvVbGcWfpgfo7iQTVmL0r1eQxzgnSq31EL1yYNMuaZjpHmQuT24Hmxl9W9enRtJyVTUhwKhtjOSOsR03sMnsckpFT9pn1/V9BE2Kf3rFGqc6JukXkqK6ZW9mtmGLSq3K+JRRq2w8PVmcbcvTr/adW4EL2yc1qk9Ec4HtiDhtSYd6/ov8xLVkKAQjLVt7Ex3/agRPfPrNwIDAQAB"
         let merchant_code       = "SCB01"
         let merchant_transaction_id = "123456789"
@@ -306,6 +308,9 @@ class ViewController: UIViewController {
         dataPayment.setValue(parram["phonenumber"] as! String,	 forKey: "phonenumber");
         
         MoMoPayment.sharedInstance.requestPayment(parram: parram)
+        
+        
+        
         /**********END Sample send request on Your Server -To - MoMo Server
          **********WARNING: need to remove it on your product app
          **********/
