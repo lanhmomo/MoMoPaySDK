@@ -64,13 +64,7 @@ class MoMoConfig {
     
     class func setMerchantcode(merchantCode: String) {
         Foundation.UserDefaults.standard.setValue(merchantCode, forKey: MOMO_PAY_CLIENT_MERCHANT_CODE_KEY)
-        
-        if !merchantCode .isEmpty {
-            
-        }
-        else {
-            print("<MoMoPay> Can not set merchantCode. This value is not null")
-        }
+        Foundation.UserDefaults.standard.synchronize()
     }
     
     class func getMerchantcode() -> String {
@@ -78,21 +72,17 @@ class MoMoConfig {
     }
     
     class func getAction() -> String {
-        //
-        //        if Foundation.UserDefaults.standard.object(forKey:APP_MERCHANT_ACTION_KEY)! {
-        //            return Foundation.UserDefaults.standard.object(forKey:APP_MERCHANT_ACTION_KEY) as? [String]
-        //        }
         return "gettoken"
     }
     
     class func setAction(action: String) {
         Foundation.UserDefaults.standard.setValue(action, forKey: APP_MERCHANT_ACTION_KEY)
-        //print("<MoMoPay> Can not set action. This value is not null")
+        Foundation.UserDefaults.standard.synchronize()
     }
     
     class func setMerchantname(merchantName: String) {
         Foundation.UserDefaults.standard.setValue(merchantName, forKey: MOMO_PAY_CLIENT_MERCHANT_NAME_KEY)
-        //print("<MoMoPay> Can not set merchantName. This value is not null")
+        Foundation.UserDefaults.standard.synchronize()
     }
     
     class func getMerchantname() -> String {
@@ -102,6 +92,7 @@ class MoMoConfig {
     class func setMerchantnameLabel(merchantnameLabel: String) {
         Foundation.UserDefaults.standard.setValue(merchantnameLabel, forKey: MOMO_PAY_CLIENT_MERCHANT_NAME_LABEL_KEY)
         //print("<MoMoPay> Can not set merchantnameLabel. This value is not null")
+        Foundation.UserDefaults.standard.synchronize()
     }
     
     class func getMerchantnameLabel() -> String {
@@ -111,6 +102,7 @@ class MoMoConfig {
     class func setPublickey(merchantpublickey: String) {
         Foundation.UserDefaults.standard.setValue(merchantpublickey, forKey: MOMO_PAY_CLIENT_PUBLIC_KEY_KEY)
         //print("<MoMoPay> Can not set merchantipaddress. This value is not null")
+        Foundation.UserDefaults.standard.synchronize()
     }
     
     class func getPublickey() -> String {
@@ -130,4 +122,16 @@ class MoMoConfig {
         let deviceInfoString = "\(aDevice.localizedModel) \(aDevice.systemName) \(aDevice.systemVersion)"
         return deviceInfoString
     }
+    
+    class func clearUserDataMoMoSDK() {
+        Foundation.UserDefaults.standard.removeObject(forKey: MOMO_PAY_CLIENT_MERCHANT_CODE_KEY)
+        Foundation.UserDefaults.standard.removeObject(forKey: MOMO_PAY_CLIENT_PUBLIC_KEY_KEY)
+        Foundation.UserDefaults.standard.removeObject(forKey: APP_MERCHANT_BUNDLE_ID_KEY)
+        
+        Foundation.UserDefaults.standard.removeObject(forKey: APP_MERCHANT_ACTION_KEY)
+        Foundation.UserDefaults.standard.removeObject(forKey: MOMO_PAY_CLIENT_MERCHANT_NAME_KEY)
+        Foundation.UserDefaults.standard.removeObject(forKey: MOMO_PAY_CLIENT_MERCHANT_NAME_LABEL_KEY)
+        Foundation.UserDefaults.standard.synchronize()
+    }
+    
 }
