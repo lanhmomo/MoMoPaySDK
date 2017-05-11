@@ -57,32 +57,33 @@ class MoMoPayment: NSObject {
         }
     }
     
+    func getQueryStringParameter(url: String?, param: String) -> String? {
+        if let url = url, let urlComponents = URLComponents(string: url), let queryItems = (urlComponents.queryItems) {
+            return queryItems.filter({ (item) in item.name == param }).first?.value!
+        }
+        return nil
+    }
+    
     open func getDictionaryFromUrlQuery(query: String) -> (NSDictionary) {
         let info : NSMutableDictionary = NSMutableDictionary()
+        //let openUrl:URL = URL(string:query)!
+
+        let momoappversion = getQueryStringParameter(url: query,param: "momoappversion")
+        let status = getQueryStringParameter(url: query,param: "status")
+        let message = getQueryStringParameter(url: query,param: "message")
+        let phonenumber = getQueryStringParameter(url: query,param: "phonenumber")
+        let data = getQueryStringParameter(url: query,param: "data")
+        let fromapp = getQueryStringParameter(url: query,param: "data")
+        let extra = getQueryStringParameter(url: query,param: "extra")
         
-        var correctQuery = query.replacingOccurrences(of: "===", with: "[333]", options: .literal, range: nil)
-        correctQuery = query.replacingOccurrences(of: "==", with: "[33]", options: .literal, range: nil)
-        
-        
-        for parameter in correctQuery.components(separatedBy:"&"){
-            let parts = parameter.components(separatedBy:"=")
-            if parts.count > 1{
-                let key = (parts[0] as String).removingPercentEncoding
-                var value = (parts[1] as String)  //.removingPercentEncoding
-                if key != nil && value != nil{
-                    //info[key!] = value
-                    var correctValue = value.replacingOccurrences(of: "[333]", with: "===", options: .literal, range: nil)
-                    correctValue = value.replacingOccurrences(of: "[33]", with: "==", options: .literal, range: nil)
-                    
-                    if key == "data" && !value.hasSuffix("=") {
-                        value = value.appending("=")
-                    }
-                    info.setValue(correctValue, forKey: key!)
-                }
-                
-                
-            }
-        }
+        info.setValue(momoappversion!, forKey: "momoappversion")
+        info.setValue(fromapp!, forKey: "fromapp")
+        info.setValue(status!, forKey: "status")
+        info.setValue(message!, forKey: "message")
+        info.setValue(phonenumber!, forKey: "phonenumber")
+        info.setValue(data!, forKey: "data")
+        info.setValue(fromapp!, forKey: "fromapp")
+        info.setValue(extra!, forKey: "extra")
         
         return info
     }
@@ -172,18 +173,7 @@ class MoMoPayment: NSObject {
      * SERVER SIDE DEMO
      * CALL MOMO API apptest2.momo.vn:8091/paygamebill
      */
-    
-    open func convertToDictionary(text: String) -> [String: Any]? {
-        if let data = text.data(using: .utf8) {
-            do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        return nil
-    }
-    
+
     open func requestPayment(parram: NSMutableDictionary) {
         //Sample send request Server-To-Server
 //        let jsonHash = "{\"data\":\"\(parram["data"] as! String)\",\"hash\":\"\(parram["hash"] as! String)\",\"ipaddress\":\"\(parram["ipaddress"] as! String)\",\"merchantcode\":\"\(MoMoConfig.getMerchantcode())\",\"phonenumber\":\"\(parram["phonenumber"] as! String)\"}"
