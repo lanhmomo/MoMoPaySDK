@@ -68,13 +68,18 @@ class MoMoPayment: NSObject {
             let parts = parameter.components(separatedBy:"=")
             if parts.count > 1{
                 let key = (parts[0] as String).removingPercentEncoding
-                let value = (parts[1] as String)  //.removingPercentEncoding
+                var value = (parts[1] as String)  //.removingPercentEncoding
                 if key != nil && value != nil{
                     //info[key!] = value
                     var correctValue = value.replacingOccurrences(of: "[333]", with: "===", options: .literal, range: nil)
                     correctValue = value.replacingOccurrences(of: "[33]", with: "==", options: .literal, range: nil)
+                    if key == "data" && !value.hasSuffix("=") {
+                        value = value.appending("=")
+                    }
                     info.setValue(correctValue, forKey: key!)
                 }
+                
+                
             }
         }
         
