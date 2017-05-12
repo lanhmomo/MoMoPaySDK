@@ -21,13 +21,7 @@ class MoMoPayment: NSObject {
     class var sharedInstance:MoMoPayment {
         return _sharedInstance
     }
-//    
-//    open func requestToken() {
-//        print("requestToken")
-//    }
-//    
-    
-    
+
     open func handleOpenUrl(url: URL, sourceApp: String) {
         //let sourceURI = url.absoluteString! as String
         let sourceURI = url.absoluteString;
@@ -169,32 +163,51 @@ class MoMoPayment: NSObject {
         
     }
     
-    
     /*
      * SERVER SIDE DEMO
      * CALL MOMO API apptest2.momo.vn:8091/paygamebill
      */
 
     open func requestPayment(parram: NSMutableDictionary) {
-        //Sample send request Server-To-Server
-//        let jsonHash = "{\"data\":\"\(parram["data"] as! String)\",\"hash\":\"\(parram["hash"] as! String)\",\"ipaddress\":\"\(parram["ipaddress"] as! String)\",\"merchantcode\":\"\(MoMoConfig.getMerchantcode())\",\"phonenumber\":\"\(parram["phonenumber"] as! String)\"}"
-//        
-//        
-//        do {
-//            let jsonData = try JSONSerialization.data(withJSONObject: parram, options: .prettyPrinted)
-//            // here "jsonData" is the dictionary encoded in JSON data
-//            
-//            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
-//            // here "decoded" is of type `Any`, decoded from JSON data
-//            
-//            // you can now cast it with the right type
-//            if let dictFromJSON = decoded as? [String:String] {
-//                // use dictFromJSON
-//            }
-//        } catch {
-//            print(error.localizedDescription)
-//        }
+        print("<MoMoPay> please implement this function by your self")
+        /* SAPMPLE CODE
+        do {
+            
+            let jsonData = try JSONSerialization.data(withJSONObject: parram, options: .prettyPrinted)
+            
+            // create post request
+            let url = URL(string: MOMO_PAYMENT_URL)!
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("gzip", forHTTPHeaderField: "Accept-Encoding")
+            request.httpBody = jsonData
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if error != nil{
+                    print("Error -> \(String(describing: error))")
+                    NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: String(describing: error), userInfo: nil)
+                }
+                else{
+                    do {
+                        let result = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
+                        
+                        NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: result, userInfo: nil)
+                        
+                    } catch {
+                        //print("Error -> \(error)")
+                        NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: String(describing: error), userInfo: nil)
+                    }
+                }
+                
+            }
+            
+            task.resume()
+            
+        } catch {
+            print(error)
+        }
+        */
     }
-    
     
 }
