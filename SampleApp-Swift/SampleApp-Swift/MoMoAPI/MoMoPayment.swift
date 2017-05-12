@@ -170,44 +170,7 @@ class MoMoPayment: NSObject {
 
     open func requestPayment(parram: NSMutableDictionary) {
         print("<MoMoPay> please implement this function by your self")
-        /* SAPMPLE CODE
-        do {
-            
-            let jsonData = try JSONSerialization.data(withJSONObject: parram, options: .prettyPrinted)
-            
-            // create post request
-            let url = URL(string: MOMO_PAYMENT_URL)!
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.setValue("gzip", forHTTPHeaderField: "Accept-Encoding")
-            request.httpBody = jsonData
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                if error != nil{
-                    print("Error -> \(String(describing: error))")
-                    NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: String(describing: error), userInfo: nil)
-                }
-                else{
-                    do {
-                        let result = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
-                        
-                        NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: result, userInfo: nil)
-                        
-                    } catch {
-                        //print("Error -> \(error)")
-                        NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: String(describing: error), userInfo: nil)
-                    }
-                }
-                
-            }
-            
-            task.resume()
-            
-        } catch {
-            print(error)
-        }
-        */
+        
     }
     
 }
