@@ -2,7 +2,7 @@
 //  MoMoPayment.swift
 //  SampleApp-Swift
 //
-//  Created by Luu Lanh on 5/11/17.
+//  Created by Luu Lanh on 4/24/17.
 //  Copyright © 2017 LuuLanh. All rights reserved.
 //
 
@@ -51,6 +51,7 @@ class MoMoPayment: NSObject {
             
             print("<MoMoPay> \(message)")
             NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterTokenReceived"), object: response, userInfo: nil)
+            NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterTokenReceivedRawValue"), object: sourceURI, userInfo: nil)
         }
         else {
             print("<MoMoPay> Do nothing")
@@ -59,22 +60,22 @@ class MoMoPayment: NSObject {
     
     func getQueryStringParameter(url: String?, param: String) -> String? {
         if let url = url, let urlComponents = URLComponents(string: url), let queryItems = (urlComponents.queryItems) {
-            return queryItems.filter({ (item) in item.name == param }).first?.value!
+            return queryItems.filter({ (item) in item.name == param }).first?.value ?? "NOT_FOUND"
         }
-        return ""
+        return "NIL"
     }
     
     open func getDictionaryFromUrlQuery(query: String) -> (NSDictionary) {
         let info : NSMutableDictionary = NSMutableDictionary()
         //let openUrl:URL = URL(string:query)!
-
-        let momoappversion = getQueryStringParameter(url: query,param: "momoappversion")
-        let status = getQueryStringParameter(url: query,param: "status")
-        let message = getQueryStringParameter(url: query,param: "message")
-        let phonenumber = getQueryStringParameter(url: query,param: "phonenumber")
-        let data = getQueryStringParameter(url: query,param: "data")
-        let fromapp = getQueryStringParameter(url: query,param: "fromapp")
-        let extra = getQueryStringParameter(url: query,param: "extra")
+        let momoappversion:String = getQueryStringParameter(url: query,param: "momoappversion")!
+        let status:String = getQueryStringParameter(url: query,param: "status")!
+        let message:String = getQueryStringParameter(url: query,param: "message")!
+        let phonenumber:String = getQueryStringParameter(url: query,param: "phonenumber")!
+        let data:String = getQueryStringParameter(url: query,param: "data")!
+        let fromapp:String = getQueryStringParameter(url: query,param: "fromapp")!
+        let appSource:String = getQueryStringParameter(url: query,param: "appSource")!
+        let extra:String = getQueryStringParameter(url: query,param: "extra")!
         
         info.setValue(String(describing: momoappversion), forKey: "momoappversion")
         info.setValue(String(describing: status), forKey: "status")
@@ -82,6 +83,7 @@ class MoMoPayment: NSObject {
         info.setValue(String(describing: phonenumber), forKey: "phonenumber")
         info.setValue(String(describing: data), forKey: "data")
         info.setValue(String(describing: fromapp), forKey: "fromapp")
+        info.setValue(String(describing: appSource), forKey: "appSource")
         info.setValue(String(describing: extra), forKey: "extra")
         
         return info
