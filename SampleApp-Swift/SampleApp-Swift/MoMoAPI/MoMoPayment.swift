@@ -75,7 +75,7 @@ class MoMoPayment: NSObject {
         let data:String = getQueryStringParameter(url: query,param: "data")!
         let fromapp:String = getQueryStringParameter(url: query,param: "fromapp")!
         let appSource:String = getQueryStringParameter(url: query,param: "appSource")!
-        let extra:String = getQueryStringParameter(url: query,param: "extra")!
+        //let extra:String = getQueryStringParameter(url: query,param: "extra")!
         
         info.setValue(String(describing: momoappversion), forKey: "momoappversion")
         info.setValue(String(describing: status), forKey: "status")
@@ -84,7 +84,7 @@ class MoMoPayment: NSObject {
         info.setValue(String(describing: data), forKey: "data")
         info.setValue(String(describing: fromapp), forKey: "fromapp")
         info.setValue(String(describing: appSource), forKey: "appSource")
-        info.setValue(String(describing: extra), forKey: "extra")
+        //info.setValue(String(describing: extra), forKey: "extra")
         
         return info
     }
