@@ -194,42 +194,7 @@ class MoMoPayment: NSObject {
 //        } catch {
 //            print(error.localizedDescription)
 //        }
-        
-        do {
-            
-            let jsonData = try JSONSerialization.data(withJSONObject: parram, options: .prettyPrinted)
-            
-            // create post request
-            let url = NSURL(string: MOMO_PAYMENT_URL)!
-            let request = NSMutableURLRequest(url: url as URL)
-            request.httpMethod = "POST"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.setValue("gzip", forHTTPHeaderField: "Accept-Encoding")
-            request.httpBody = jsonData
-            
-            let task = URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
-                if error != nil{
-                    print("Error -> \(String(describing: error))")
-                    NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: String(describing: error), userInfo: nil)
-                }
-                else{
-                    do {
-                        let result = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
-                        
-                        NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: result, userInfo: nil)
-                        
-                    } catch {
-                        //print("Error -> \(error)")
-                        NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterCreateOrderReceived"), object: String(describing: error), userInfo: nil)
-                    }
-                }
-                
-            }
-            
-            task.resume()
-            
-        } catch {
-            print(error)
-        }
     }
+    
+    
 }
