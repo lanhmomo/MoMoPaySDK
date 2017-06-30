@@ -19,4 +19,5 @@
 -(NSString*)getAction;
 -(void)setAction:(NSString*)action;
 -(void)updateAmount:(long long)amt;
+-(NSMutableDictionary*) getDictionaryFromUrl:(NSString*)urlString;
 @end
