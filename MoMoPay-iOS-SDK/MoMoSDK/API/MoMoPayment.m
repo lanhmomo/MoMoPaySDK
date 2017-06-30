@@ -211,4 +211,41 @@ static NSMutableDictionary *paymentInfo = nil;
     [MoMoConfig setAction:action];
 }
 
+/*Update function convert Url to Parameters
+ Date: Jun 30 , 2017*/
+- (NSString *)valueForKey:(NSString *)key
+           fromQueryItems:(NSArray *)queryItems
+{
+    NSString *value = @"";
+    @try {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name=%@", key];
+        NSURLQueryItem *queryItem = [[queryItems
+                                      filteredArrayUsingPredicate:predicate]
+                                     firstObject];
+        value = queryItem.value;
+        
+    } @catch (NSException *exception) {
+        
+    } @finally {
+        
+    }
+    
+    return value;
+}
+
+-(NSMutableDictionary*) getDictionaryFromUrl:(NSString*)urlString{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:[NSURL URLWithString:urlString] resolvingAgainstBaseURL:NO];
+    
+    NSArray *queryItems = urlComponents.queryItems;
+    
+    for (NSURLQueryItem *_item in queryItems) {
+        NSLog(@"<MoMoPay> queryItems %@ : %@", _item.name, _item.value);
+        if (_item.name && _item.value){
+            [params setObject:_item.value forKey:_item.name];
+        }
+    }
+    return params;
+}
 @end
